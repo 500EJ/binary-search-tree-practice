@@ -12,8 +12,10 @@ class TreeNode {
 }
 
 export class BinarySearchTree {
+  root: TreeNode | null;
+
   constructor() {
-    // Your code here
+    this.root = null;
   }
 
   insert(val, currentNode = this.root) {
