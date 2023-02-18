@@ -36,8 +36,17 @@ export class BinarySearchTree {
     }
   }
 
-  search(val) {
-    // Your code here
+  search(val: number): boolean {
+    let current = this.root;
+    while (current !== null) {
+      if (val === current.val) return true;
+      if (val < current.val) {
+        current = current.left;
+        continue;
+      }
+      if (val > current.val) current = current.right;
+    }
+    return false;
   }
 
   preOrderTraversal(currentNode = this.root) {
