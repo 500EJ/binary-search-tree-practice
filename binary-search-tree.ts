@@ -72,11 +72,25 @@ export class BinarySearchTree {
 
   // Breadth First Traversal - Iterative
   breadthFirstTraversal() {
-    // your code here
+    if (!this.root) return;
+    const queue = [this.root];
+    while (queue.length) {
+      const removed = queue.shift()!;
+      console.log(removed.val);
+      if (removed.left) queue.push(removed.left);
+      if (removed.right) queue.push(removed.right);
+    }
   }
 
   // Depth First Traversal - Iterative
   depthFirstTraversal() {
-    // your code here
+    if (this.root === null) return;
+    const stack = [this.root];
+    while (stack.length) {
+      const removed = stack.pop()!;
+      console.log(removed.val);
+      if (removed.left) stack.push(removed.left);
+      if (removed.right) stack.push(removed.right);
+    }
   }
 }
