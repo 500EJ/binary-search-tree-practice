@@ -18,8 +18,22 @@ export class BinarySearchTree {
     this.root = null;
   }
 
-  insert(val, currentNode = this.root) {
-    // Your code here
+  insert(val: number, currentNode = this.root) {
+    if (currentNode === null) {
+      this.root = new TreeNode(val);
+    } else if (val < currentNode.val) {
+      if (currentNode.left === null) {
+        currentNode.left = new TreeNode(val);
+        return;
+      }
+      this.insert(val, currentNode.left);
+    } else {
+      if (currentNode.right === null) {
+        currentNode.right = new TreeNode(val);
+        return;
+      }
+      this.insert(val, currentNode.right);
+    }
   }
 
   search(val) {
